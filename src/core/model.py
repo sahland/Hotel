@@ -1,4 +1,5 @@
 import datetime
+import decimal
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -19,3 +20,9 @@ class ClientORM(Base):
     adress: Mapped[str]
     phone_number: Mapped[str]
     bithday: Mapped[datetime.date]
+
+class ServiceORM(Base):
+    __tablename__='service'
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement='auto')
+    price: Mapped[decimal.Decimal]
+    name: Mapped[str]
