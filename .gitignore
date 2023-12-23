@@ -1,3 +1,6 @@
+# files
+.env
+
 # directories
 __pycache__/
 .vscode/
