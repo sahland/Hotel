@@ -1,5 +1,6 @@
 import datetime
 import decimal
+from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -26,3 +27,15 @@ class ServiceORM(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement='auto')
     price: Mapped[decimal.Decimal]
     name: Mapped[str]
+
+class BookingWithRoomORM(Base):
+    __tablename__='booking_with_room'
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement='auto')
+    room_number: Mapped[int] = mapped_column(primary_key=True)
+
+    arrivalDate: Mapped[datetime.date]
+    departureDate: Mapped[datetime.date]
+    numbersOfPeople: Mapped[int]
+    room_cost: Mapped[decimal.Decimal]
+
+    room_type_id: Mapped[int] = mapped_column(ForeignKey('room_type.id', ondelete='CASCADE'))
