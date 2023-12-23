@@ -8,6 +8,6 @@ class RoomTypeCreateSchema(RoomTypeBaseSchema): ...
 
 class RoomTypeUpdateSchema(RoomTypeBaseSchema): ...
 
-class RoomTypeSchema(BaseModel):
+class RoomTypeSchema(RoomTypeBaseSchema):
     id: int
     model_config = ConfigDict(from_attributes=True)
