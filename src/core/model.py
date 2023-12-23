@@ -15,7 +15,7 @@ class RoomTypeORM(Base):
 class ClientORM(Base):
     __tablename__='client'
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement='auto')
-    client_fullName: Mapped[str]
-    client_adress: Mapped[str]
-    client_phone_number: Mapped[str]
-    client_bithday: Mapped[datetime.date]
+    fullName: Mapped[str]
+    adress: Mapped[str]
+    phone_number: Mapped[str]
+    bithday: Mapped[datetime.date]
