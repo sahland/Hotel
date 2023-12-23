@@ -39,3 +39,14 @@ class BookingWithRoomORM(Base):
     room_cost: Mapped[decimal.Decimal]
 
     room_type_id: Mapped[int] = mapped_column(ForeignKey('room_type.id', ondelete='CASCADE'))
+
+class OrderORM(Base):
+    __tablename__='order'
+
+    service_id: Mapped[int] = mapped_column(
+        ForeignKey('service.id', ondelete='CASCADE'),
+        primary_key=True, )
+    
+    client_id: Mapped[int] = mapped_column(
+        ForeignKey('client.id', ondelete='CASCADE'),
+        primary_key=True, )
